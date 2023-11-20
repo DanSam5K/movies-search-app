@@ -8,6 +8,31 @@
     <title>The Movie Search App</title>
   </head>
   <body>
+    <header>
+      <div>
+        <h1>Diligent Movies Search APP</h1>
+        <input type="text" placeholder="Search for a movie..." id="search-input" />
+        <button id="submit">Search</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="notification-area">Notification-area(Result from cache/API)</div>
+      <section class="results-grid">
+        <div class="movie-card">
+          <div class="movie-image"><img src="https://via.placeholder.com/300x450" alt="Movie poster" /></div>
+          <div class="movie-info">
+            <h2>Movie title</h2>
+            <p>Movie description</p>
+          </div>
+        </div>
+      </section>
+      <div class="pagination-controls">
+        <button id="prev-page" disabled>Previous</button>
+        <span id="pagination-numbers">Page 1 of 10</span>
+        <button id="next-page">Next</button>
+      </div>
+    </main>
     
     <script src="script.js"></script>
   </body>
