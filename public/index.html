@@ -3,11 +3,35 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link 
-      rel="stylesheet" src="style.css" type="text/css">
+    <link rel="stylesheet" href="./style.css" as="style">
     <title>The Movie Search App</title>
   </head>
   <body>
+    <header>
+      <h1 class="title-logo">Diligent Movies Search</h1>
+      <div class="navbar">
+        <input type="text" placeholder="Search for a movie..." id="search-input" />
+        <button id="search-button" type="submit">Search</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="notification-area">Notification-area(Result from cache/API)</div>
+      <section class="results-grid">
+        <div class="movie-card">
+          <div class="movie-image"></div>
+          <div class="movie-info">
+            <h2>Movie title</h2>
+            <p>Movie description</p>
+          </div>
+        </div>
+      </section>
+      <div class="pagination-controls">
+        <button id="prev-page" disabled type="button">Previous</button>
+        <span id="pagination-numbers">Page 1 of 10</span>
+        <button id="next-page" type="button">Next</button>
+      </div>
+    </main>
     
     <script src="script.js"></script>
   </body>
