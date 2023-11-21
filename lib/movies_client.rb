@@ -11,14 +11,13 @@ class MoviesClient
   end
 
   def self.search(movie_name)
-    if cache_valid?(movie_name)
-      redis.incr("#{movie_name}_hits")
-      JSON.parse(redis.get(movie_name))
-    else
-      response = fetch_from_api(movie_name)
-      cache_response(movie_name, response)
-      response
-    end
+    cached_movie = redis.get(movie_name)
+    return JSON.parse(cached_movie) if cached_movie && cache_valid?(movie_name)
+
+    response = fetch_from_api(movie_name)
+    raise "Error: #{response.code}" unless response.code == 200
+
+    cache_response(movie_name, response.parsed_response['results'])
   end
 
   def self.fetch_from_api(movie_name)
