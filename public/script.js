@@ -1,6 +1,6 @@
 // this file is used to handle the frontend logic
 document.getElementById('search-button').addEventListener('click', () => {
-  let movieName = document.getElementById('search-input').value;
+  const movieName = document.getElementById('search-input').value;
 
   fetch('/search', {
     method: 'POST',
@@ -12,10 +12,10 @@ document.getElementById('search-button').addEventListener('click', () => {
     .then((res) => res.json())
     .then((data) => {
       const dataResult = JSON.parse(data.movie);
-      let movieList = document.querySelector('.results-grid');
+      const movieList = document.querySelector('.results-grid');
       movieList.innerHTML = '';
-      dataResult?.results.forEach((movie) => {
-        let movieElement = document.createElement('div');
+      dataResult.results.forEach((movie) => {
+        const movieElement = document.createElement('div');
         movieElement.innerHTML = `
         <div class="movie-card">
           <div>

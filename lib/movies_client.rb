@@ -21,8 +21,6 @@ class MoviesClient
     end
   end
 
-  private_class_method
-
   def self.fetch_from_api(movie_name)
     HTTParty.get(BASE_URL, query: { api_key: API_KEY, query: movie_name })
   end
