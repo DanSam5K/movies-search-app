@@ -16,8 +16,8 @@ end
 post '/search' do
   content_type :json
   request_payload = JSON.parse(request.body.read)
-  movie_name = request_payload['movie_name']
-
+  movie_name = request_payload['movieName']
   search_result = MoviesClient.search(movie_name)
+  
   { movie: search_result }.to_json
 end
