@@ -3,8 +3,8 @@ require 'httparty'
 require 'redis'
 
 class MoviesClient
-  BASE_URL = 'https://api.themoviedb.org/3/search/movie'
-  API_KEY = '67955c025665490170b87a2d2e9d6b4f'
+  BASE_URL = 'https://api.themoviedb.org/3/search/movie'.freeze
+  API_KEY = '67955c025665490170b87a2d2e9d6b4f'.freeze
 
   def self.redis
     @redis ||= Redis.new
@@ -15,15 +15,11 @@ class MoviesClient
     return JSON.parse(cached_movie) if cached_movie && cache_valid?(movie_name)
 
     response = fetch_from_api(movie_name)
-    if response.code == 200
-      cache_response(movie_name, response.parsed_response['results'])
-    else
-      raise "Error: #{response.code}"
-    end
+    raise "Error: #{response.code}" unless response.code == 200
+
+    cache_response(movie_name, response.parsed_response['results'])
   end
 
-  private
-  
   def self.fetch_from_api(movie_name)
     HTTParty.get(BASE_URL, query: { api_key: API_KEY, query: movie_name })
   end
