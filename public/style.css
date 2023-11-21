@@ -4,11 +4,12 @@ html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
+  background-color: black;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   background-color: #e9e9e9;
 }
@@ -50,31 +51,50 @@ html {
 
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 10px;
   padding: 10px;
 }
 
 .movie-card {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 10px;
   background-color: #fff;
+
 }
 
 .movie-image {
   background-color: #e9e9e9;
-  height: 200px; /* Adjust as needed */
-  margin-bottom: 10px;
+  height: 220px; /* Adjust as needed */
 }
 
 .movie-info {
   text-align: center;
 }
 
+.movie-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.movie-text {
+  font-size: 14px;
+  color: #666;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .pagination-controls {
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .pagination-controls button {
