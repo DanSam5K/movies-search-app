@@ -1,1 +1,37 @@
 #!/usr/bin/env ruby
+require 'httparty'
+require 'redis'
+
+class MoviesClient
+  BASE_URL = 'https://api.themoviedb.org/3/search/movie'.freeze
+  API_KEY = '67955c025665490170b87a2d2e9d6b4f'.freeze
+
+  def self.redis
+    @redis ||= Redis.new
+  end
+
+  def self.search(movie_name)
+    cached_movie = redis.get(movie_name)
+    return JSON.parse(cached_movie) if cached_movie && cache_valid?(movie_name)
+
+    response = fetch_from_api(movie_name)
+    raise "Error: #{response.code}" unless response.code == 200
+
+    cache_response(movie_name, response.parsed_response['results'])
+  end
+
+  def self.fetch_from_api(movie_name)
+    HTTParty.get(BASE_URL, query: { api_key: API_KEY, query: movie_name })
+  end
+
+  def self.cache_response(movie_name, response)
+    redis.set(movie_name, response.to_json)
+    redis.set("#{movie_name}_timestamp", Time.now.to_i)
+    redis.set("#{movie_name}_hits", 0)
+  end
+
+  def self.cache_valid?(movie_name)
+    timestamp = redis.get("#{movie_name}_timestamp").to_i
+    (Time.now.to_i - timestamp) < 120
+  end
+end
