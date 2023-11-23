@@ -88,7 +88,7 @@ document.getElementById('prev-page').addEventListener('click', () => {
   if (currentPage > 1) {
     searchMovies(
       document.getElementById('search-input').value,
-      currentPage - 1
+      currentPage - 1,
     );
   }
 });
@@ -97,7 +97,7 @@ document.getElementById('next-page').addEventListener('click', () => {
   if (currentPage < totalPages) {
     searchMovies(
       document.getElementById('search-input').value,
-      currentPage + 1
+      currentPage + 1,
     );
   }
 });
