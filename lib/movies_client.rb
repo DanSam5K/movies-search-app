@@ -4,8 +4,7 @@ require 'redis'
 
 class MoviesClient
   BASE_URL = 'https://api.themoviedb.org/3/search/movie'.freeze
-  API_KEY = ENV['MOVIES_API_KEY']
-
+  API_KEY = ENV.fetch('MOVIES_API_KEY', nil) # replace with your API key actual API key here
   def self.redis
     @redis ||= Redis.new
   end
