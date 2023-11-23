@@ -4,7 +4,7 @@ html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: black;
+  background-color: #522e2e;
 }
 
 .navbar {
@@ -112,4 +112,9 @@ html {
 .pagination-controls button:disabled {
   color: #999;
   cursor: not-allowed;
+}
+
+#page-number {
+  color: #f2f4f6;
+  background-color: #007bff;
 }
