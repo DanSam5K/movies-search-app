@@ -9,6 +9,6 @@ gem 'sinatra'
 gem 'sinatra-cors'
 
 group :test do
-  gem 'rspec'
   gem 'rack-test'
+  gem 'rspec'
 end
