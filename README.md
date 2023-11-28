@@ -1,4 +1,3 @@
-
 ## Movie Search Application
 Overview
 The Movie Search Application is a web-based tool allowing users to search for movies using The Movie Database (TMDb) API. It features a simple, intuitive interface for users to enter search queries and view results. The backend, built with Ruby and Sinatra, communicates with TMDb API, caches results, and handles errors efficiently. The frontend, built with HTML, CSS, and JavaScript, presents a user-friendly interface and manages user interactions.
@@ -14,8 +13,8 @@ The Movie Search Application is a web-based tool allowing users to search for mo
 
 ### Local version Image Demo
 
-![screenshot1](./public/assets/deligentapp2.png)
-![screenshot2](./public/assets/deligentapp.png)
+![screenshot1](./public/assets/diligentapp.png)
+![screenshot2](./public/assets/diligentapp2.png)
 
 ### Project Structure
 - To be implemented after refactoring currently undergoing development and yet to refactored and modularized

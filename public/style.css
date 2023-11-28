@@ -4,7 +4,7 @@ html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #522e2e;
+  background-color: #2a1313;
 }
 
 .navbar {
@@ -17,7 +17,7 @@ html {
 .title-logo {
   font-size: 30px;
   font-weight: bold;
-  color: #007bff;
+  color: #e70c1b;
   padding: 0 10px 0 10px;
 }
 
@@ -33,13 +33,13 @@ html {
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
-  color: white;
+  background-color: #7223d8;
+  color: #fff;
   cursor: pointer;
 }
 
 #search-button:hover {
-  background-color: #0056b3;
+  background-color: #666;
 }
 
 #notification-area {
@@ -94,6 +94,9 @@ html {
 .pagination-controls {
   text-align: center;
   padding: 10px 0;
+  border: solid 1px #ddd;
+  border-radius: 4px;
+  background-color: #f8f8f8;
 }
 
 .pagination-controls button {
@@ -101,7 +104,8 @@ html {
   margin: 0 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  background-color: #f8f8f8;
+  color: #fff;
+  background-color: #7223d8;
   cursor: pointer;
 }
 
@@ -115,6 +119,8 @@ html {
 }
 
 #page-number {
-  color: #f2f4f6;
-  background-color: #007bff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 2px 5px;
+  color: #7223d8;
 }
