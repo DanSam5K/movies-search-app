@@ -1,10 +1,14 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env rubyrequire 'dotenv'
+require 'dotenv/load'
 require 'httparty'
 require 'redis'
 
+Dotenv.load
+
 class MoviesClient
   BASE_URL = 'https://api.themoviedb.org/3/search/movie'.freeze
-  API_KEY = ''.freeze # substitute with your API key actual API key here
+  API_KEY = ENV.fetch('MOVIES_API_KEY', nil) # API key from .env file will be used here
+
   def self.redis
     @redis ||= Redis.new
   end

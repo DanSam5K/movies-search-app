@@ -4,6 +4,7 @@ GEM
     ast (2.4.2)
     connection_pool (2.4.1)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -74,6 +75,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  dotenv
   httparty
   json
   puma
@@ -83,6 +85,9 @@ DEPENDENCIES
   rubocop
   sinatra
   sinatra-cors
+
+RUBY VERSION
+   ruby 3.0.3p157
 
 BUNDLED WITH
    2.4.22
