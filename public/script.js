@@ -1,6 +1,9 @@
+let totalPages = 0;
+
 function updateSearchResults(results) {
   const movieList = document.querySelector('.results-grid');
   movieList.innerHTML = '';
+
   results.forEach((result) => {
     const defaultImage = 'https://via.placeholder.com/500x750?text=No+Image+Available';
     const posterImageURL = result.poster_path
@@ -21,6 +24,12 @@ function updateSearchResults(results) {
     `;
     movieList.appendChild(movieElement);
   });
+}
+
+function updatePaginationControls(page) {
+  document.getElementById('page-number').innerHTML = `page ${page}`;
+  document.getElementById('prev-page').disabled = page === 1;
+  document.getElementById('next-page').disabled = page === totalPages;
 }
 
 function searchMovies(query, page = 1) {
@@ -44,7 +53,9 @@ function searchMovies(query, page = 1) {
         document.getElementById('notification-area').appendChild(errorElement);
       } else {
         const dataResults = data.movie;
+        totalPages = dataResults.total_pages;
         updateSearchResults(dataResults.results);
+        updatePaginationControls(page);
       }
     })
     .catch((error) => {
@@ -61,4 +72,18 @@ function searchMovies(query, page = 1) {
 document.getElementById('search-button').addEventListener('click', () => {
   const movieName = document.getElementById('search-input').value;
   searchMovies(movieName);
+});
+
+let currentPage = 1;
+
+document.getElementById('prev-page').addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage -= 1;
+    searchMovies(document.getElementById('search-input').value, currentPage);
+  }
+});
+
+document.getElementById('next-page').addEventListener('click', () => {
+  currentPage += 1;
+  searchMovies(document.getElementById('search-input').value, currentPage);
 });
