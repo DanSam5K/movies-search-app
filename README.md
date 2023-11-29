@@ -9,7 +9,7 @@ The Movie Search Application is a web-based tool allowing users to search for mo
 - Error handling for robustness.
 
 ### Live Version
-- Will be available shortly after deployment
+- Click [here](https://movies-search-app-c2b68843fa14.herokuapp.com) for demo deployed version on Heroku
 
 ### Local version Image Demo
 
